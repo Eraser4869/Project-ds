@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ibgd.css" />
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+</head>
+<body>
+    <nav>
+        <div class="navmain">
+            <button class="backcont" onclick="history.back()">
+                <img class="backimg" src="img/뒤로가기.png">
+            </button>
+            <img class="navimg" src="img/신우초.png"/>
+            <div class="nocont"></div>
+        </div>
+    </nav>
+    <section class="bgsurvey">
+    <form method="post" action="checkNV.php" accept-charset="UTF-8">
+        <div class="contsurvey">
+            <p class="ptitle">일일방문증 관리대장(정기)</p>
+            <div class="continput">
+                <p class="pname">연락처</p>
+                <input type="tel" name="연락처" id="pwcheck" maxlength="11" oninput="maxLengthCheck(this)" placeholder="숫자만 입력" required />
+                <p class="pessential pepw" style="display: none;">연락처 11자리를 입력해주세요</p>
+            </div>
+        </div>
+        <div class="btncont">
+            <input type="submit" value="제출" class="btnsubmit" />
+        </div>
+    </form>
+    </section>
+    <footer></footer>
+    <script type="text/javascript" src="ibgdNV.js"></script>
+</body>
+</html>
