@@ -14,8 +14,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 include 'connect.php';
 
 // 날짜 범위 초기화
-$start_date = isset($_POST['start_date']) ? $_POST['start_date'] : null;
-$end_date = isset($_POST['end_date']) ? $_POST['end_date'] : null;
+$start_date = isset($_POST['start_date']) ? $_POST['start_date'] : '';
+$end_date = isset($_POST['end_date']) ? $_POST['end_date'] : '';
 
 // 종료일이 제공되면, 종료일에 시간 '23:59:59'를 추가
 $search_end_date = $end_date; // 폼에서 보여줄 날짜
@@ -60,8 +60,8 @@ $result = $stmt->get_result();
         
         <!-- 날짜 검색 폼 -->
         <form method="post" action="">
-            시작 날짜: <input type="date" name="start_date" value="<?php echo htmlspecialchars($start_date); ?>" required>
-            끝 날짜: <input type="date" name="end_date" value="<?php echo htmlspecialchars($search_end_date); ?>" required>
+            시작 날짜: <input type="date" name="start_date" value="<?php echo htmlspecialchars($start_date ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
+            끝 날짜: <input type="date" name="end_date" value="<?php echo htmlspecialchars($search_end_date ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
             <button type="submit">조회</button>
         </form>
         
