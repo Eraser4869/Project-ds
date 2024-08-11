@@ -1,5 +1,6 @@
 document.getElementById('admin-login').addEventListener('submit', validateForm);
 
+/*
 function validateForm(event) {
 
 
@@ -33,6 +34,7 @@ function validateForm(event) {
         event.target.submit();
     }
 }
+*/
 
 
 function logout() {
