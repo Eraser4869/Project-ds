@@ -38,7 +38,9 @@
             
         </div>
     </section>
+    <!--
     <script type="text/javascript" src="admin.js"></script>
+    -->
 </body>
 </html>
 
