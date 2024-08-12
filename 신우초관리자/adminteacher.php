@@ -58,7 +58,6 @@ $result = $conn->query($sql);
         <table id="guestbook-teacher">
             <thead>
                 <tr>
-                    <th>ID 교직원차량</th>
                     <th>직급</th>
                     <th>성명</th>
                     <th>차량종류</th>
@@ -76,7 +75,6 @@ $result = $conn->query($sql);
                 // 각 행 출력
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row["ID 교직원차량"] . "</td>";
                     echo "<td>" . $row["직급"] . "</td>";
                     echo "<td>" . $row["성명"] . "</td>";
                     echo "<td>" . $row["차량종류"] . "</td>";
