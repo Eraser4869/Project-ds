@@ -42,30 +42,19 @@ $result = $conn->query($sql);
             <a class="navlink clicked" href="adminteacher.php">교사 방문자 관리</a>
         </div>
     </nav>
-    <section>
-        <h1>교사 방명록</h1>
-
-        <!--Delete 섹션 시작 -->
-        <form id="deleteForm" method="POST" action="deleteRecord_T.php">
-            <label for="id">ID:</label>
-            <input type="number" id="id" name="id" required>
-            <button type="button" onclick="deleteRecord()">Delete</button>
-        </form>
-
-        <script>
-            
-            function deleteRecord() {
-                if (confirm("정말로 이 레코드를 삭제하시겠습니까?")) {
-                    document.getElementById('deleteForm').submit();
-                }
-            }
-        </script>
-        </script>
-        
-        <!-- Delete 섹션 종료 -->
-
-
-
+    <aside>
+        <div class="adminsidecont">
+            <div class="sidea clicked" id="sidershow">방문자 관리</div>
+            <div class="xdivider"></div>
+            <div class="sidea" id="sideradd">방문자 추가</div>
+        </div>
+    </aside>
+    <article>
+    <section class="ritem rshow">
+        <div class="title">
+        <h1>교사 방문자 관리</h1>
+        <button class="print-button" onclick="window.print()"><span class="print-icon"></span></button>
+        </div>
         <table id="guestbook-teacher">
             <thead>
                 <tr>
@@ -75,40 +64,83 @@ $result = $conn->query($sql);
                     <th>차량종류</th>
                     <th>앞번호</th>
                     <th>차량번호</th>
-                    <th>요일제제외사유</th>
+                    <th>요일제 제외사유</th>
                     <th>휴무일</th>
+                    <th>삭제</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                // 데이터베이스 결과가 있는 경우
-                if ($result->num_rows > 0) {
-                    // 각 행 출력
-                    while($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["ID 교직원차량"] . "</td>";
-                        echo "<td>" . $row["직급"] . "</td>";
-                        echo "<td>" . $row["성명"] . "</td>";
-                        echo "<td>" . $row["차량종류"] . "</td>";
-                        echo "<td>" . $row["앞번호"] . "</td>";
-                        echo "<td>" . $row["차량번호"] . "</td>";
-                        echo "<td>" . $row["요일제제외사유"] . "</td>";
-                        echo "<td>" . $row["휴무일"] . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='9'>No data found</td></tr>";
+        <tbody>
+            <?php
+            // 데이터베이스 결과가 있는 경우
+            if ($result->num_rows > 0) {
+                // 각 행 출력
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["ID 교직원차량"] . "</td>";
+                    echo "<td>" . $row["직급"] . "</td>";
+                    echo "<td>" . $row["성명"] . "</td>";
+                    echo "<td>" . $row["차량종류"] . "</td>";
+                    echo "<td>" . $row["앞번호"] . "</td>";
+                    echo "<td>" . $row["차량번호"] . "</td>";
+                    echo "<td>" . $row["요일제제외사유"] . "</td>";
+                    echo "<td>" . $row["휴무일"] . "</td>";
+                    // 삭제버튼 추가 (해당 ID를 쿼리스트링에 포함)
+                    echo "<td><form method='POST' action='deleteRecord_T.php' onsubmit='return confirm(\"정말 삭제하시겠습니까?\");'>
+                            <input type='hidden' name='id' value='" . $row["ID 교직원차량"] . "'>
+                            <input type='submit' class='btndelete' value='삭제 X'>
+                          </form></td>";
+                    echo "</tr>";
                 }
-                // 연결 종료
-                $conn->close();
-                ?>
-            </tbody>
+            } else {
+                echo "<tr><td colspan='9'>No data found</td></tr>";
+            }
+            // 연결 종료
+            $conn->close();
+            ?>
+        </tbody>
         </table>
-
     </section>
-    <script type="text/javascript" src="admin.js"></script>
 
-    <!--인쇄 -->
-    <button onclick="window.print()">인쇄</button>
+    <section class="ritem radd">
+        <h1>정기 방문자 추가</h1>
+        <form method="post" action="checkT.php" accept-charset="UTF-8">
+            <div class="contsurvey">
+                <div class="continput">
+                    <p class="pname">직급</p>
+                    <input type="text" class="sinput" id="tjob" name="직급" maxlength="15" placeholder="직급을 적어주세요"/>
+                    <p class="pessential petjob">직급을 적어주세요</p>
+                </div>
+                <div class="continput">
+                    <p class="pname">성명</p>
+                    <input type="text" class="sinput" id="tname" name="성명" maxlength="4" placeholder="홍길동"/>
+                    <p class="pessential petname">이름을 적어주세요</p>
+                </div>
+                <div class="continput">
+                    <p class="pname">차량종류</p>
+                    <input type="text" class="sinput" id="tcartype" name="차량종류" maxlength="10" placeholder="K5"/>
+                    <p class="pessential petct">차량종류를 적어주세요</p>
+                </div>
+                <div class="continput">
+                    <p class="pname">앞번호</p>
+                    <input type="text" class="sinput" id="tcarnum1" name="앞번호" maxlength="4" placeholder="차량 앞번호 입력"/>
+                    <p class="pessential petcn1">앞번호를 입력해주세요</p>
+                </div>
+                <div class="continput">
+                    <p class="pname">차량번호</p>
+                    <input type="number" class="sinput" id="tcarnum2" name="차량번호" maxlength="4" oninput="maxLengthCheck(this)" placeholder="차량 뒷번호 입력"/>
+                    <p class="pessential petcn2">차량번호를 입력해주세요</p>
+                </div>
+                <div class="continput">
+                    <p class="pname">요일제 제외 사유 (해당 시)</p>
+                    <textarea class="area2 sarea" id="treason" name="요일제제외사유" maxlength="45" placeholder="사유를 적어주세요"></textarea>
+                </div>
+            </div>
+            <div class="btncont">
+                <input type="submit" value="제출" class="btnsubmit" />
+            </div>
+        </form>
+    </section>
+    </article>
+    <script type="text/javascript" src="tbgd.js"></script>
 </body>
 </html>
