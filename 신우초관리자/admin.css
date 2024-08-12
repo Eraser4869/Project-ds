@@ -80,10 +80,10 @@ section{
 }
 .errorcont{
     height: 20px;
+    margin-top: 10px;
 }
 .error {
     color: red;
-    margin-top: 10px;
 }
 .sinublack{
     height: 50px;
