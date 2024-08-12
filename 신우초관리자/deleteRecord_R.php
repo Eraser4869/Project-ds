@@ -1,35 +1,28 @@
 <?php
-// 데이터베이스 연결 포함
 include 'connect.php';
 
+// POST로 전달된 id 값 확인
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 폼 데이터에서 ID 정기방문자 읽기
-    $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+    $id = $_POST['id'];
 
-    if ($id > 0) {
-        // Prepared statement 사용
-        $stmt = $conn->prepare("DELETE FROM 정기방문자 WHERE `ID 정기방문자` = ?");
-        $stmt->bind_param("i", $id);
+    // 삭제 쿼리 실행
+    $sql = "DELETE FROM 정기방문자 WHERE `ID 정기방문자` = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $id);
 
-        if ($stmt->execute()) {
-            echo '<script type="text/javascript">
-                alert("레코드 삭제 성공");
-                window.location = "adminroutine.html"
-                </script>';
-        } else {
-            echo '<script type="text/javascript">
-                alert("등록 실패: ' . $stmt->error . '");
-                window.location = "adminroutine.html"
-                </script>';
-        }
-
-        $stmt->close();
+    if ($stmt->execute()) {
+        echo "Record deleted successfully";
     } else {
-        echo "유효하지 않은 ID입니다.";
+        echo "Error deleting record: " . $conn->error;
     }
 
-    $conn->close();
-} else {
-    echo "올바른 요청이 아닙니다.";
+    $stmt->close();
 }
+
+// 연결 종료
+$conn->close();
+
+// 삭제 후 리디렉션
+header("Location: adminroutine.php"); // 이전 페이지로 리디렉션
+exit();
 ?>
