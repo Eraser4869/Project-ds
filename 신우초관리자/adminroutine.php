@@ -59,7 +59,6 @@ $result = $conn->query($sql);
         <table id="guestbook-routine">
         <thead>
             <tr>
-                <th>ID 정기방문자</th>
                 <th>직급</th>
                 <th>성명</th>
                 <th>차량종류</th>
@@ -77,7 +76,6 @@ $result = $conn->query($sql);
                 // 각 행 출력
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row["ID 정기방문자"] . "</td>";
                     echo "<td>" . $row["직급"] . "</td>";
                     echo "<td>" . $row["성명"] . "</td>";
                     echo "<td>" . $row["차량종류"] . "</td>";
