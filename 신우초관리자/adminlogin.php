@@ -14,7 +14,6 @@
             <div class="loginimgcont"><img class="sinublack" src="img/신우초-검.png"/></div>
             <h2>관리자 페이지 로그인</h2>
 
-
             <form method="post" action="login_process.php" id="admin-login">
                 <h4>로그인 ID</h4>
                 <input type="email" id="adminId" name="adminId" placeholder="Admin123@example.com">
@@ -24,7 +23,6 @@
                     <input type="checkbox" id="remember-check">로그인 정보 저장
                 </a>
                 <div class="errorcont">
-
                 <?php
                     session_start();
                     if (isset($_SESSION['error'])) {
