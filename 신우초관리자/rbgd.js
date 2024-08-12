@@ -121,5 +121,9 @@ function validateForm(event) {
 }
 
 window.onload = function() {
-  document.querySelector('form').addEventListener('submit', validateForm);
+  // Attach the validateForm function to the form containing the submit button with id 'surveybtn'
+  var surveyButton = document.getElementById('surveybtnr');
+  if (surveyButton) {
+    surveyButton.closest('form').addEventListener('submit', validateForm);
+  }
 };
