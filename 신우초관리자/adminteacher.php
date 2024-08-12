@@ -134,7 +134,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             <div class="btncont">
-                <input type="submit" value="제출" class="btnsubmit" />
+                <input type="submit" id="surveybtnt" value="제출" class="btnsubmit" />
             </div>
         </form>
     </section>
