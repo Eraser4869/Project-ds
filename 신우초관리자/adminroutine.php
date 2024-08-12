@@ -1,6 +1,18 @@
 <?php
+
+session_start();
+
+// 로그인 상태 확인
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // 로그인 페이지로 리다이렉트
+    $_SESSION['error'] = "다시 로그인 해야합니다.";
+    header("Location: adminlogin.php");
+    
+}
+
 // 데이터베이스 연결 포함
 include 'connect.php';
+
 
 // SQL 쿼리 작성
 $sql = "SELECT * FROM 정기방문자";
