@@ -55,16 +55,20 @@ $result = $stmt->get_result();
             <a class="navlink" href="adminteacher.php">교사 방문자 관리</a>
         </div>
     </nav>
+    <article>
     <section>
-        <h1>일일 방명록</h1>
-        
-        <!-- 날짜 검색 폼 -->
-        <form method="post" action="">
-            시작 날짜: <input type="date" name="start_date" value="<?php echo htmlspecialchars($start_date ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
-            끝 날짜: <input type="date" name="end_date" value="<?php echo htmlspecialchars($search_end_date ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
-            <button type="submit">조회</button>
+        <div class="title">
+        <h1>일일 방문자 관리</h1>
+            <!-- 날짜 검색 폼 -->
+        <form class="datesearcher" method="post" action="">
+            <label class="datelabel" for="start_date">시작 날짜:</label>
+            <input class="dateinput" type="date" name="start_date" value="<?php echo htmlspecialchars($start_date ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
+            <label class="datelabel" for="end_date">끝 날짜:</label>
+            <input class="dateinput" type="date" name="end_date" value="<?php echo htmlspecialchars($search_end_date ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
+            <button class="datebtn" type="submit">조회</button>
         </form>
-        
+        <button class="print-button" onclick="window.print()"><span class="print-icon"></span></button>
+        </div>
         <table id="guestbook-daily">
             <thead>
                 <tr>
@@ -104,11 +108,8 @@ $result = $stmt->get_result();
                 ?>
             </tbody>
         </table>
-
     </section>
+    <article>
     <script type="text/javascript" src="admin.js"></script>
-
-    <!-- 인쇄 버튼 -->
-    <button onclick="window.print()">인쇄</button>
 </body>
 </html>
