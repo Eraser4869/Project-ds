@@ -18,7 +18,9 @@ VALUES('$직급','$성명','$차량종류','$앞번호','$차량번호','$전화
 
 //윈도우 로케이션 위치 수정 필요.
 if($conn->query($sql))echo '<script type="text/javascript">
-window.location="ibgdFin.html";
+
+alert("정기 방문자 등록 완료!");
+window.location="adminroutine.php";
 </script>';
 exit();
 
