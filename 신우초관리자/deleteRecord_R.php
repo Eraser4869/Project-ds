@@ -23,6 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 
 // 삭제 후 리디렉션
-header("Location: adminroutine.php"); // 이전 페이지로 리디렉션
+header("Location: adminRoutine.php"); // 이전 페이지로 리디렉션
 exit();
 ?>

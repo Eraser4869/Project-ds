@@ -3,9 +3,9 @@
 //http://127.0.0.1/connect.php
 
 $server = "localhost";
-$user = "root";
-$password = "QWer78787899?";
-$dbname = "방명록";
+$user = "dshosting";
+$password = "dsps0107!";
+$dbname = "dshosting";
 
 $conn = new mysqli($server, $user, $password, $dbname);
 

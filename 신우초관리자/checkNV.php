@@ -31,7 +31,6 @@ if ($result->num_rows > 0) {
 
     if ($insert_stmt->execute()) {
         echo '<script type="text/javascript">
-        alert("성공적인 등록!");
         window.location = "ibgdFin.html";
         </script>';
     } else {
