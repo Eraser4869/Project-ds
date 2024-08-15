@@ -105,7 +105,7 @@ $result = $conn->query($sql);
             <div class="contsurvey">
                 <div class="continput">
                     <p class="pname">직급</p>
-                    <input type="text" class="sinput" id="tjob" name="직급" maxlength="15" placeholder="직급을 적어주세요"/>
+                    <input type="text" class="sinput" id="tjob" name="직급" maxlength="10" placeholder="직급을 적어주세요"/>
                     <p class="pessential petjob">직급을 적어주세요</p>
                 </div>
                 <div class="continput">
@@ -130,7 +130,7 @@ $result = $conn->query($sql);
                 </div>
                 <div class="continput">
                     <p class="pname">요일제 제외 사유 (해당 시)</p>
-                    <textarea class="area2 sarea" id="treason" name="요일제제외사유" maxlength="45" placeholder="사유를 적어주세요"></textarea>
+                    <textarea class="area2 sarea" id="treason" name="요일제제외사유" maxlength="30" placeholder="사유를 적어주세요"></textarea>
                 </div>
             </div>
             <div class="btncont">

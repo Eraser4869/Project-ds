@@ -58,7 +58,7 @@ function validateForm(event) {
   // If all fields are valid, submit the form
   if (isValid) {
     if (car === "") {
-      document.getElementById('car').value = "0000";
+      document.getElementById('car').value = "null";
     }
       event.target.submit();
   }
