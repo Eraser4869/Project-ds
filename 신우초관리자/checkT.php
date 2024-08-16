@@ -48,7 +48,7 @@ VALUES ('$직급', '$성명', '$차량종류', '$앞번호', '$차량번호', '$
 // 윈도우 로케이션 위치 수정 필요.
 if($conn->query($sql)) {
     echo '<script type="text/javascript">
-    alert("교사 방문자 등록 완료!");
+    alert("교직원 차량 등록 완료!");
     window.location="adminTeacher.php";
     </script>';
 } else {

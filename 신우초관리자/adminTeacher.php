@@ -39,7 +39,7 @@ $result = $conn->query($sql);
             <div class="ydivider"></div>
             <a class="navlink" href="adminRoutine.php">정기 방문자 관리</a>
             <div class="ydivider"></div>
-            <a class="navlink clicked" href="adminTeacher.php">교사 방문자 관리</a>
+            <a class="navlink clicked" href="adminTeacher.php">교직원 차량 관리</a>
         </div>
     </nav>
     <aside>
@@ -52,7 +52,7 @@ $result = $conn->query($sql);
     <article>
     <section class="ritem rshow">
         <div class="title">
-        <h1>교사 방문자 관리</h1>
+        <h1>교직원 차량 관리</h1>
         <button class="print-button" onclick="window.print()"><span class="print-icon"></span></button>
         </div>
         <table id="guestbook-teacher">

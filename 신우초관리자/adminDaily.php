@@ -52,7 +52,7 @@ $result = $stmt->get_result();
             <div class="ydivider"></div>
             <a class="navlink" href="adminRoutine.php">정기 방문자 관리</a>
             <div class="ydivider"></div>
-            <a class="navlink" href="adminTeacher.php">교사 방문자 관리</a>
+            <a class="navlink" href="adminTeacher.php">교직원 차량 관리</a>
         </div>
     </nav>
     <article>
