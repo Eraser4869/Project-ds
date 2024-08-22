@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="middleBoss.css" />
+        <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+    </head>
+<body class="darkback">
+    <section>
+
+        <div class="logincont">
+            <div class="loginimgcont"><img class="sinublack" src="img/신우초-검.png"/></div>
+            <h2>관리자 페이지 로그인</h2>
+
+            <form method="post" action="login_process.php" id="mb-login">
+
+                <h4>비밀번호</h4>
+                <input type="password" id="mbPw" name="mbPw" placeholder="Password123">
+
+                <div class="errorcont"><p id="error-message" class="error"></p></div>
+                <input type="submit" value="Login">
+            </form>
+
+
+
+        </div>
+    </section>
+    <script type="text/javascript" src="middleBoss.js"></script>
+</body>
+</html>
