@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $allowed_fields = ['방문증번호', '반납여부'];
     if (in_array($field, $allowed_fields)) {
         // SQL 쿼리 준비 및 실행
-        $stmt = $conn->prepare("UPDATE 중간관리자 SET $field = ? WHERE ID방문자 = ?");
+        $stmt = $conn->prepare("UPDATE 중간관리자 SET $field = ? WHERE 방문자ID = ?");
         $stmt->bind_param("si", $value, $id);
 
         if ($stmt->execute()) {
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // 반납여부가 업데이트되면 퇴교시간도 업데이트
         if ($field === '반납여부' && !empty($value)) {
-            $stmt = $conn->prepare("UPDATE 중간관리자 SET 퇴교시간 = CURRENT_TIMESTAMP WHERE ID방문자 = ? AND 반납여부 IS NOT NULL");
+            $stmt = $conn->prepare("UPDATE 중간관리자 SET 퇴교시간 = CURRENT_TIMESTAMP WHERE 방문자ID = ? AND 반납여부 IS NOT NULL");
             $stmt->bind_param("i", $id);
             $stmt->execute();
         }

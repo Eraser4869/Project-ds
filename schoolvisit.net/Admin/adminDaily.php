@@ -21,10 +21,10 @@ $end_date = isset($_POST['end_date']) ? $_POST['end_date'] : '';
 $search_end_date = $end_date; // 폼에서 보여줄 날짜
 if ($start_date && $end_date) {
     $end_date = $end_date . ' 23:59:59';
-    $stmt = $conn->prepare("SELECT * FROM 일일방명록 WHERE 방문시간 BETWEEN ? AND ? ORDER BY 방문시간 ASC");
+    $stmt = $conn->prepare("SELECT * FROM 일일방명록 WHERE 입교시간 BETWEEN ? AND ? ORDER BY 입교시간 ASC");
     $stmt->bind_param("ss", $start_date, $end_date);
 } else {
-    $stmt = $conn->prepare("SELECT * FROM 일일방명록 ORDER BY 방문시간 DESC");
+    $stmt = $conn->prepare("SELECT * FROM 일일방명록 ORDER BY 입교시간 DESC");
 }
 
 // 쿼리 실행
@@ -80,7 +80,7 @@ $result = $stmt->get_result();
                     <th>연락처</th>
                     <th>방문목적</th>
                     <th>차량번호</th>
-                    <th>방문시간</th>
+                    <th>입교시간</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,7 +97,7 @@ $result = $stmt->get_result();
                         echo "<td>" . htmlspecialchars($row["연락처"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["방문목적"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["차량번호"]) . "</td>";
-                        echo "<td>" . htmlspecialchars($row["방문시간"]) . "</td>";
+                        echo "<td>" . htmlspecialchars($row["입교시간"]) . "</td>";
                         echo "</tr>";
                         $new_id++;
                     }

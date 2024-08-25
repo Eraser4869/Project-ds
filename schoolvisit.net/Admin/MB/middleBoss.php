@@ -64,11 +64,11 @@ $result = $stmt->get_result();
                         echo "<tr>";
                         echo "<td>" . $new_id . "</td>";
                         echo "<td>" . htmlspecialchars($row["이름"]) . "</td>";
-                        echo "<td><input type='number' value='" . htmlspecialchars($row["방문증번호"]) . "' onchange='updateRecord(" . $row["ID방문자"] . ", \"방문증번호\", this.value)'></td>";
+                        echo "<td><input type='number' value='" . htmlspecialchars($row["방문증번호"]) . "' onchange='updateRecord(" . $row["방문자ID"] . ", \"방문증번호\", this.value)'></td>";
     
                          // 반납 여부를 체크박스로 변경
                         $checked = ($row["반납여부"] === '완료') ? "checked" : "";
-                        echo "<td><input type='checkbox' $checked onchange='updateCheckbox(" . $row["ID방문자"] . ", this.checked)'> 완료</td>";        
+                        echo "<td><input type='checkbox' $checked onchange='updateCheckbox(" . $row["방문자ID"] . ", this.checked)'> 완료</td>";        
                         
                         echo "<td>" . htmlspecialchars($row["입교시간"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["퇴교시간"]) . "</td>";

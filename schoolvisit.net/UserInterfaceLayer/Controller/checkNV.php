@@ -9,7 +9,7 @@ $연락처 = isset($_POST['연락처']) ? $_POST['연락처'] : '';
 // 연락처가 테이블에 존재하는지 확인
 // prepare와 bind_param을 사용하여 SQL 인젝션 공격 방지
 // 방문시간을 기준으로 가장 최신의 데이터를 참조
-$sql = "SELECT * FROM 일일방명록 WHERE 연락처 = ? ORDER BY 방문시간 DESC LIMIT 1";
+$sql = "SELECT * FROM 일일방명록 WHERE 연락처 = ? ORDER BY 입교시간 DESC LIMIT 1";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $연락처);
 $stmt->execute();

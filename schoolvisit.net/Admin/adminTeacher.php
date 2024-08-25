@@ -83,7 +83,7 @@ $result = $conn->query($sql);
                     echo "<td>" . $row["휴무일"] . "</td>";
                     // 삭제버튼 추가 (해당 ID를 쿼리스트링에 포함)
                     echo "<td><form method='POST' action='Controller/deleteRecord_T.php' onsubmit='return confirm(\"정말 삭제하시겠습니까?\");'>
-                            <input type='hidden' name='id' value='" . $row["ID 교직원차량"] . "'>
+                            <input type='hidden' name='id' value='" . $row["교직원ID"] . "'>
                             <input type='submit' class='btndelete' value='삭제 X'>
                           </form></td>";
                     echo "</tr>";

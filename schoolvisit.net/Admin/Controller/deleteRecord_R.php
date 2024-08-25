@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
 
     // 삭제 쿼리 실행
-    $sql = "DELETE FROM 정기방문자 WHERE `ID 정기방문자` = ?";
+    $sql = "DELETE FROM 정기방문자 WHERE 정기방문자ID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $id);
 
