@@ -48,7 +48,6 @@ $result = $stmt->get_result();
         <table id="guestbook-daily">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>이름</th>
                     <th>방문증 번호</th>
                     <th>반납 여부</th>
@@ -59,10 +58,8 @@ $result = $stmt->get_result();
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
-                    $new_id = 1; // 새로운 ID 초기화
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $new_id . "</td>";
                         echo "<td>" . htmlspecialchars($row["이름"]) . "</td>";
                         echo "<td><input type='number' value='" . htmlspecialchars($row["방문증번호"]) . "' onchange='updateRecord(" . $row["방문자ID"] . ", \"방문증번호\", this.value)'></td>";
     
@@ -73,7 +70,7 @@ $result = $stmt->get_result();
                         echo "<td>" . htmlspecialchars($row["입교시간"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["퇴교시간"]) . "</td>";
                         echo "</tr>";
-                        $new_id++;
+
                     }
                 } else {
                     echo "<tr><td colspan='9'>데이터가 없습니다.</td></tr>";
@@ -83,6 +80,6 @@ $result = $stmt->get_result();
         </table>
     </section>
     <article>
-    <script type="text/javascript" src="mb.js"></script>
+    <script type="text/javascript" src="../../Script/middleBoss.js"></script>
 </body>
 </html>

@@ -35,7 +35,6 @@
 
 
         </div>
-    </section>
-    <script type="text/javascript" src="../../Script/middleBoss.js"></script>
+    </section>s
 </body>
 </html>

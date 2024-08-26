@@ -16,13 +16,14 @@ if (empty($adminId) || empty($adminPw)) {
     exit();
 }
 
-/*
+
 // 비밀번호를 해시화하여 데이터베이스에서 확인할 수 있도록 합니다.
 $adminPw = hash('sha256', $adminPw); // 암호화 방법을 변경할 수 있습니다.
-*/
+
 
 // 데이터베이스 쿼리 준비 및 실행
-$sql = "SELECT * FROM 관리자목록 WHERE 관리자ID = ? AND 관리자비번 = ?";
+
+$sql = "SELECT * FROM 관리자목록 WHERE 관리자ID = ? AND 관리자비번 = ? AND 로그인허용 = TRUE";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $adminId, $adminPw);
 $stmt->execute();
