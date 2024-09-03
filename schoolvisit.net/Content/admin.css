@@ -43,32 +43,15 @@ section{
     background-color: #F8F8F8;
     border: solid #bcbcbc 1px;
 }
-#admin-loginm > input::placeholder{
-    color: #D2D2D2;
-}
+
 #admin-login > input[type="submit"]{
     color: #fff;
     font-size: 16px;
     background-color: #00746D;
     margin-top: 20px;
 }
-#admin-login > input[type="checkbox"]{
-    display: none;
-}
 #admin-login > label{
     color: #999999;
-}
-#admin-login input[type="checkbox"] + label{
-    cursor: pointer;
-    padding-left: 26px;
-    background-image: url("checkbox.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-#admin-login input[type="checkbox"]:checked + label{
-    background-image: url("checkbox-active.png");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 #remember-check{
     accent-color: #F47D13;
@@ -304,6 +287,7 @@ table {
 
 th, td {
     min-width: 74px;
+    height: 30px;
     border: 1px solid #ddd;
     padding: 8px 12px;
     text-align: left;
@@ -314,111 +298,44 @@ th {
 }
 
 
-/* 테이블 셀 기본 스타일 초기화 */
-#guestbook-routine tbody td {
-    position: relative;
-}
-
-
 /* 삭제 버튼 스타일 */
 .btndelete {
     display: none;
-    padding: 5px 10px; /* 삭제 버튼의 크기 조정 */
-    height: 30px;
-    border: 1px solid black;
-    background-color: #F2F2F2;
-    border-radius: 4px;
-    cursor: pointer;
-    position: absolute; /* 절대 위치로 설정 */
-    left: 0px; /* 왼쪽으로 배치 */
-    top: 50%;
-    transform: translateY(-50%); /* 버튼을 세로 가운데로 정렬 */
-    z-index: 1; /* 버튼을 다른 요소 위에 배치 */
-}
-
-.btndelete:hover {
-    background-color: #cccccc;
-}
-
-/* 기본 상태에서는 삭제 버튼 열 숨기기 */
-#guestbook-routine tbody td:last-child {
-    display: none; /* 마지막 열을 기본 상태에서 숨기기 */
-    position: relative;
-}
-
-/* 행에 마우스를 올렸을 때 삭제 버튼 표시 */
-#guestbook-routine tbody tr:hover td:last-child {
-    display: table-cell; /* 마지막 열을 마우스를 올렸을 때만 보이도록 설정 */
-    padding-left: 10px; /* 삭제 버튼이 나타날 공간 확보 */
-}
-
-#guestbook-routine tbody tr:hover td:last-child .btndelete {
-    display: inline-block;
-}
-
-/*행에 마우스를 올렸을 때, 해당 행만 오른쪽으로 이동*/
-#guestbook-routine tbody tr:hover {
-    transform: translateX(10px); /* 버튼이 나타날 만큼 이동 */
-    transition: transform 0.3s ease; /* 부드러운 이동 애니메이션 */
-}
-
-/* thead는 호버 효과가 적용되지 않도록 유지 */
-#guestbook-routine thead tr:hover {
-    transform: none; /* thead는 움직이지 않도록 설정 */
-}
-
-
-
-
-/* 삭제 버튼 스타일링을 #guestbook-teacher에 적용 */
-#guestbook-teacher tbody td {
-    position: relative;
-}
-
-.btndelete {
-    display: none;
+    left: 10px;
     padding: 5px 10px;
     height: 30px;
     border: 1px solid black;
     background-color: #F2F2F2;
     border-radius: 4px;
     cursor: pointer;
-    position: absolute;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     z-index: 1;
 }
-
 .btndelete:hover {
-    background-color: #cccccc;
+    background-color: #bcbcbc;
 }
-
-#guestbook-teacher tbody td:last-child {
-    display: none;
-    position: relative;
+.miniform{
+    width: 0;
 }
-
-#guestbook-teacher tbody tr:hover td:last-child {
-    display: table-cell;
-    padding-left: 10px;
+.minitd{
+    min-width: 0;
+    padding: 0;
 }
-
-#guestbook-teacher tbody tr:hover td:last-child .btndelete {
+#guestbook-routine tbody tr:hover .btndelete {
     display: inline-block;
 }
+#guestbook-routine tbody tr:hover {
+    transform: translateX(10px); /* 버튼이 나타날 만큼 이동 */
+    transition: transform 0.3s ease; /* 부드러운 이동 애니메이션 */
+}
 
+#guestbook-teacher tbody tr:hover .btndelete {
+    display: inline-block;
+}
 #guestbook-teacher tbody tr:hover {
-    transform: translateX(10px);
-    transition: transform 0.3s ease;
+    transform: translateX(10px); /* 버튼이 나타날 만큼 이동 */
+    transition: transform 0.3s ease; /* 부드러운 이동 애니메이션 */
 }
-
-#guestbook-teacher thead tr:hover {
-    transform: none;
-}
-
-
-
 /* survey */
 
 .contsurvey{
@@ -572,6 +489,6 @@ th {
     background-color: #0056b3; /* 호버 시 배경 색상 */
 }
 
-
-
-
+.delrow{
+    position: absolute;
+}

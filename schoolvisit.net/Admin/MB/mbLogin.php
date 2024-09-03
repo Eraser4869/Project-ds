@@ -9,17 +9,14 @@
     </head>
 <body class="darkback">
     <section>
-
         <div class="logincont">
             <div class="loginimgcont"><img class="sinublack" src="../../Images/신우초-검.png"></div>
             <h2>중간 관리자 로그인</h2>
-
             <form method="post" action="mb_login_process.php" id="mb-login">
-
                 <h4>비밀번호</h4>
                 <input type="password" id="mbPin" name="mbPin" placeholder="Password123">
 
-                <div class="errorcont"><p id="error-message" class="error"></p></div>
+                <div class="errorcont">
                     <?php
                         session_start();
                         if (isset($_SESSION['error'])) {
@@ -27,7 +24,7 @@
                             unset($_SESSION['error']);
                         }
                     ?>
-                
+                </div>
                 <input type="submit" value="Login">
                 
             </form>
@@ -35,6 +32,6 @@
 
 
         </div>
-    </section>s
+    </section>
 </body>
 </html>

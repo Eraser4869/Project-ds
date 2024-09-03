@@ -4,10 +4,6 @@ function mbLogout() {
     window.location.href ='/Admin/Controller/logout.php';
 }
 
-//이것 좀 middleBoss.js 로 합쳐줘. 로그아웃 누르면 에러 일어나서 분리해 놓음.
-//예상1. middleBoss.php에서 middleBoss.js가 모종의 이유로 참조가 안됨.
-//예상2. middleBoss.js에서 logout.php가 모종의 이유로 참조가 안됨.
-
 
 // 기록 업데이트 함수 (숫자 입력용)
 function updateRecord(id, field, value) {
@@ -30,5 +26,22 @@ function updateCheckbox(id, isChecked) {
     updateRecord(id, '반납여부', value);
 }
 
+function showPopup(row) {
+    // Get the data from the row
+    var data = JSON.parse(row.getAttribute('data-row'));
 
+    // Populate the popup with data from the row
+    document.getElementById('popup-name').textContent = data.이름;
+    document.getElementById('popup-id').textContent = data.방문증번호;
+    document.getElementById('popup-return').textContent = data.반납여부;
+    document.getElementById('popup-entry').textContent = data.입교시간;
+    document.getElementById('popup-exit').textContent = data.퇴교시간;
+
+    // Show the popup
+    document.getElementById('popup').style.display = 'block';
+}
+
+function btnhide() {
+    document.getElementById('popup').style.display = 'none';
+}
 

@@ -127,3 +127,4 @@ window.onload = function() {
     surveyButton.closest('form').addEventListener('submit', validateForm);
   }
 };
+

@@ -58,6 +58,7 @@ $result = $conn->query($sql);
         <table id="guestbook-teacher">
             <thead>
                 <tr>
+                    <th class='minitd'></th>
                     <th>직급</th>
                     <th>성명</th>
                     <th>차량종류</th>
@@ -74,6 +75,10 @@ $result = $conn->query($sql);
                 // 각 행 출력
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
+                    echo "<td class='minitd'><div class='miniform'><form method='POST' action='Controller/deleteRecord_R.php' onsubmit='return confirm(\"정말 삭제하시겠습니까?\");'>
+                            <input type='hidden' name='id' value='" . $row["교직원ID"] . "'>
+                            <input type='submit' class='btndelete' value='삭제 X'>
+                          </form></div></td>";
                     echo "<td>" . $row["직급"] . "</td>";
                     echo "<td>" . $row["성명"] . "</td>";
                     echo "<td>" . $row["차량종류"] . "</td>";
@@ -81,11 +86,6 @@ $result = $conn->query($sql);
                     echo "<td>" . $row["차량번호"] . "</td>";
                     echo "<td>" . $row["요일제제외사유"] . "</td>";
                     echo "<td>" . $row["휴무일"] . "</td>";
-                    // 삭제버튼 추가 (해당 ID를 쿼리스트링에 포함)
-                    echo "<td><form method='POST' action='Controller/deleteRecord_T.php' onsubmit='return confirm(\"정말 삭제하시겠습니까?\");'>
-                            <input type='hidden' name='id' value='" . $row["교직원ID"] . "'>
-                            <input type='submit' class='btndelete' value='삭제 X'>
-                          </form></td>";
                     echo "</tr>";
                 }
             } else {
